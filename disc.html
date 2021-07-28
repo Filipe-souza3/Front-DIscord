@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img_disc/disc.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="imgs/disc.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <script src="javascript.js"></script>
     <title>Discord</title>
 </head>
 <body>
-    <div class="total">
+    <div class="total" id="total">
         <div class="header">
             <div class="nameChannel">
-                <div class="servName">Filipe
-                    <svg width="18" height="18" class="actionServ">
+                <div class="servName">Bitcoin
+                    <svg width="18" height="18" class="actionServ" id="actionServ" onclick="actionServ()">
                         <g fill="none" fill-rule="evenodd">
                             <path d="M0 0h18v18H0"></path>
                             <path stroke="#DCDDDE" d="M4.5 4.5l9 9" stroke-linecap="round"></path>
@@ -27,20 +28,22 @@
                     <path class="iconHead" d="M33 34.5833V7.49998H35V36.6666H9C6.791 36.6666 5 34.801 5 32.5V7.49998C5 5.19894 6.791 3.33331 9 3.33331H31V30.4166H9C7.8955 30.4166 7 31.3485 7 32.5C7 33.6515 7.8955 34.5833 9 34.5833H33ZM23.9718 9.99998L15.8889 17.9915L12.7086 14.8441L10 17.5058L15.8885 23.3333L26.6667 12.6669L23.9718 9.99998Z"></path>
                 </svg>
                 <div class="headRoom">   
-                        welcome  
+                    <div>
+                        welcome  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam architecto cum ea iure inventore modi doloribus autem doloremque facilis? Vero debitis ea reprehenderit accusantium eum ut eos maiores, animi laboriosam?
+                    </div>   
+                    <!-- welcome -->
                 </div>
-                <div class="searchInfos">
-                    <svg x="0" y="0" class="searchInfos_bell" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path  fill-rule="evenodd" clip-rule="evenodd" d="M18 9V14C18 15.657 19.344 17 21 17V18H3V17C4.656 17 6 15.657 6 14V9C6 5.686 8.686 3 12 3C15.314 3 18 5.686 18 9ZM11.9999 21C10.5239 21 9.24793 20.19 8.55493 19H15.4449C14.7519 20.19 13.4759 21 11.9999 21Z"></path>
-                    </svg>
-                    <svg x="0" y="0" class="searchInfos_pinned" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path  d="M22 12L12.101 2.10101L10.686 3.51401L12.101 4.92901L7.15096 9.87801V9.88001L5.73596 8.46501L4.32196 9.88001L8.56496 14.122L2.90796 19.778L4.32196 21.192L9.97896 15.536L14.222 19.778L15.636 18.364L14.222 16.95L19.171 12H19.172L20.586 13.414L22 12Z"></path></svg>
-                    <svg x="0" y="0" class="searchInfos_member" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M14 8.00598C14 10.211 12.206 12.006 10 12.006C7.795 12.006 6 10.211 6 8.00598C6 5.80098 7.794 4.00598 10 4.00598C12.206 4.00598 14 5.80098 14 8.00598ZM2 19.006C2 15.473 5.29 13.006 10 13.006C14.711 13.006 18 15.473 18 19.006V20.006H2V19.006Z"></path><path  fill-rule="evenodd" clip-rule="evenodd" d="M14 8.00598C14 10.211 12.206 12.006 10 12.006C7.795 12.006 6 10.211 6 8.00598C6 5.80098 7.794 4.00598 10 4.00598C12.206 4.00598 14 5.80098 14 8.00598ZM2 19.006C2 15.473 5.29 13.006 10 13.006C14.711 13.006 18 15.473 18 19.006V20.006H2V19.006Z"></path><path  d="M20.0001 20.006H22.0001V19.006C22.0001 16.4433 20.2697 14.4415 17.5213 13.5352C19.0621 14.9127 20.0001 16.8059 20.0001 19.006V20.006Z"></path><path  d="M14.8834 11.9077C16.6657 11.5044 18.0001 9.9077 18.0001 8.00598C18.0001 5.96916 16.4693 4.28218 14.4971 4.0367C15.4322 5.09511 16.0001 6.48524 16.0001 8.00598C16.0001 9.44888 15.4889 10.7742 14.6378 11.8102C14.7203 11.8418 14.8022 11.8743 14.8834 11.9077Z"></path></svg>
-                    <div class="search">
-                        <input  type="text" class="input_search" placeholder="Search">
+                <div class="searchInfos" id="searchInfos">
+                    <svg id="bell" onclick="bell()" class="searchInfos_bell" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24" fill="none"><path  fill-rule="evenodd" clip-rule="evenodd" d="M18 9V14C18 15.657 19.344 17 21 17V18H3V17C4.656 17 6 15.657 6 14V9C6 5.686 8.686 3 12 3C15.314 3 18 5.686 18 9ZM11.9999 21C10.5239 21 9.24793 20.19 8.55493 19H15.4449C14.7519 20.19 13.4759 21 11.9999 21Z"></path></svg>
+                    <svg id="bell_disabled" onclick="bell()" class="searchInfos_bell_disabled" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path class="bell_disabled_scratched" d="M21.178 1.70703L22.592 3.12103L4.12103 21.593L2.70703 20.178L21.178 1.70703Z"></path><path d="M18 10.5283L10.5287 18H21V17C19.344 17 18 15.657 18 14V10.5283Z"></path><path d="M8.957 19.5718L9.52877 19H15.4449C14.7519 20.19 13.4759 21 11.9999 21C10.7748 21 9.68752 20.442 8.957 19.5718Z"></path><path d="M12 3C13.417 3 14.71 3.5 15.734 4.321L5.99805 14.058C5.99805 14.0479 5.99856 14.038 5.99907 14.0283C5.99956 14.0188 6.00005 14.0094 6.00005 14V9C6.00005 5.686 8.68605 3 12 3Z"></path></svg>
+                    <svg class="searchInfos_pinned" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path  d="M22 12L12.101 2.10101L10.686 3.51401L12.101 4.92901L7.15096 9.87801V9.88001L5.73596 8.46501L4.32196 9.88001L8.56496 14.122L2.90796 19.778L4.32196 21.192L9.97896 15.536L14.222 19.778L15.636 18.364L14.222 16.95L19.171 12H19.172L20.586 13.414L22 12Z"></path></svg>
+                    <svg class="searchInfos_member" onclick="hiddenMembers()" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M14 8.00598C14 10.211 12.206 12.006 10 12.006C7.795 12.006 6 10.211 6 8.00598C6 5.80098 7.794 4.00598 10 4.00598C12.206 4.00598 14 5.80098 14 8.00598ZM2 19.006C2 15.473 5.29 13.006 10 13.006C14.711 13.006 18 15.473 18 19.006V20.006H2V19.006Z"></path><path  fill-rule="evenodd" clip-rule="evenodd" d="M14 8.00598C14 10.211 12.206 12.006 10 12.006C7.795 12.006 6 10.211 6 8.00598C6 5.80098 7.794 4.00598 10 4.00598C12.206 4.00598 14 5.80098 14 8.00598ZM2 19.006C2 15.473 5.29 13.006 10 13.006C14.711 13.006 18 15.473 18 19.006V20.006H2V19.006Z"></path><path  d="M20.0001 20.006H22.0001V19.006C22.0001 16.4433 20.2697 14.4415 17.5213 13.5352C19.0621 14.9127 20.0001 16.8059 20.0001 19.006V20.006Z"></path><path  d="M14.8834 11.9077C16.6657 11.5044 18.0001 9.9077 18.0001 8.00598C18.0001 5.96916 16.4693 4.28218 14.4971 4.0367C15.4322 5.09511 16.0001 6.48524 16.0001 8.00598C16.0001 9.44888 15.4889 10.7742 14.6378 11.8102C14.7203 11.8418 14.8022 11.8743 14.8834 11.9077Z"></path></svg>
+                    <div class="search" id="search">
+                        <input  type="text" class="input_search" id="input_search" placeholder="Search" onclick="input_search_focus()" onblur="input_search_nofocus()">
                         <svg class="magnifier" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path  d="M21.707 20.293L16.314 14.9C17.403 13.504 18 11.799 18 10C18 7.863 17.167 5.854 15.656 4.344C14.146 2.832 12.137 2 10 2C7.863 2 5.854 2.832 4.344 4.344C2.833 5.854 2 7.863 2 10C2 12.137 2.833 14.146 4.344 15.656C5.854 17.168 7.863 18 10 18C11.799 18 13.504 17.404 14.9 16.314L20.293 21.706L21.707 20.293ZM10 16C8.397 16 6.891 15.376 5.758 14.243C4.624 13.11 4 11.603 4 10C4 8.398 4.624 6.891 5.758 5.758C6.891 4.624 8.397 4 10 4C11.603 4 13.109 4.624 14.242 5.758C15.376 6.891 16 8.398 16 10C16 11.603 15.376 13.11 14.242 14.243C13.109 15.376 11.603 16 10 16Z"></path></svg>
                     </div>
-                    <svg x="0" y="0" class="searchInfos_inbox" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 3H4.99C3.88 3 3.01 3.89 3.01 5L3 19C3 20.1 3.88 21 4.99 21H19C20.1 21 21 20.1 21 19V5C21 3.89 20.1 3 19 3ZM19 15H15C15 16.66 13.65 18 12 18C10.35 18 9 16.66 9 15H4.99V5H19V15Z" ></path></svg>
-                    <svg x="0" y="0" class="searchInfos_help" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path  d="M12 2C6.486 2 2 6.487 2 12C2 17.515 6.486 22 12 22C17.514 22 22 17.515 22 12C22 6.487 17.514 2 12 2ZM12 18.25C11.31 18.25 10.75 17.691 10.75 17C10.75 16.31 11.31 15.75 12 15.75C12.69 15.75 13.25 16.31 13.25 17C13.25 17.691 12.69 18.25 12 18.25ZM13 13.875V15H11V12H12C13.104 12 14 11.103 14 10C14 8.896 13.104 8 12 8C10.896 8 10 8.896 10 10H8C8 7.795 9.795 6 12 6C14.205 6 16 7.795 16 10C16 11.861 14.723 13.429 13 13.875Z"></path></svg>
+                    <svg class="searchInfos_inbox" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 3H4.99C3.88 3 3.01 3.89 3.01 5L3 19C3 20.1 3.88 21 4.99 21H19C20.1 21 21 20.1 21 19V5C21 3.89 20.1 3 19 3ZM19 15H15C15 16.66 13.65 18 12 18C10.35 18 9 16.66 9 15H4.99V5H19V15Z" ></path></svg>
+                    <svg class="searchInfos_help" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path  d="M12 2C6.486 2 2 6.487 2 12C2 17.515 6.486 22 12 22C17.514 22 22 17.515 22 12C22 6.487 17.514 2 12 2ZM12 18.25C11.31 18.25 10.75 17.691 10.75 17C10.75 16.31 11.31 15.75 12 15.75C12.69 15.75 13.25 16.31 13.25 17C13.25 17.691 12.69 18.25 12 18.25ZM13 13.875V15H11V12H12C13.104 12 14 11.103 14 10C14 8.896 13.104 8 12 8C10.896 8 10 8.896 10 10H8C8 7.795 9.795 6 12 6C14.205 6 16 7.795 16 10C16 11.861 14.723 13.429 13 13.875Z"></path></svg>
                 </div>
             </div>
         </div>
@@ -54,31 +57,32 @@
             </div>
             <hr/>
             <div class="picChannel">
-                <div class="channel">
+                <title id="bit">Bitcoin</title>
+                <div class="channel channel_active" aria-labelledby="title" style="background-image:url(https://exame.com/wp-content/uploads/2021/03/Dollar-bitcoin-1.jpg);">
                     <div class="notification">2</div>
                 </div>
-                <div class="dotLeft"></div>
+                <div class="dotLeft dotLeft_active"></div>
             </div>
             <div class="picChannel">
-                <div class="channel">
+                <div class="channel" style="background-image:url(https://www.logo.wine/a/logo/Ethereum/Ethereum-Icon-Purple-Dark-Dark-Background-Logo.wine.svg);">
                     <div class="notification">29</div>
                 </div>
                 <div class="dotLeft"></div>
             </div>
             <div class="picChannel">
-                <div class="channel"></div>
+                <div class="channel" style="background-image:url(https://conteudo.imguol.com.br/c/entretenimento/95/2021/02/25/alguns-itens-sao-indispensaveis-para-montar-o-seu-pc-gamer-1614232957829_v2_450x337.jpg);"></div>
                 <div class="dotLeft"></div>
             </div>
             <div class="picChannel">
-                <div class="channel"></div>
+                <div class="channel" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Rubiks_cube_by_keqs.jpg/220px-Rubiks_cube_by_keqs.jpg);"></div>
                 <div class="dotLeft"></div>
             </div>
             <div class="picChannel">
-                <div class="channel"></div>
+                <div class="channel" style="background-image:url(https://www.meu-horoscopo-do-dia.com/apps/5/images/magic-8-ball.jpg);"></div>
                 <div class="dotLeft"></div>
             </div>
             <div class="picChannel">
-                <div class="channel"></div>
+                <div class="channel" style="background-image:url(https://i0.wp.com/eletronworld.com.br/wp-content/uploads/2015/09/Figura31.png);"></div>
                 <div class="dotLeft"></div>
             </div>
             <!-- configs -->
@@ -103,7 +107,7 @@
             </div>
         </div>
         <div class="rooms">
-            <div class="serv_config">
+            <div class="serv_config" id="serv_config">
                 <div class="serv_conf">
                     <div class="servC boost">Server Boost</div>
                     <!-- <div class="svg_boost"> -->
@@ -162,7 +166,7 @@
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
                     </div>
                 </div>
-                    <div  class="topic_1 type">
+                <div  class="topic_1 type">
                     <div class="name_topic">
                         <div class="dot_topic"></div>
                         <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z"></path></svg>
@@ -228,56 +232,44 @@
                     CHAT
                 </div>
             </div>
-                <div  class="topic_1 voice">
+                <div  class="topic_1 type">
                     <div class="name_topic">
-                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
+                        <div class="dot_topic"></div>
+                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z"></path></svg>
                         room 1
                     </div>
                     <div class="topic_add">
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
                     </div>
-                    <div class="member_numbers">
-                        <div class="members_on">00</div>
-                        <div class="members_total">05</div>
-                    </div>
                 </div>
-                <div  class="topic_1 voice">
+                <div  class="topic_1 type">
                     <div class="name_topic">
-                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
+                        <div class="dot_topic"></div>
+                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z"></path></svg>
                         room 2
                     </div>
                     <div class="topic_add">
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
                     </div>
-                    <div class="member_numbers">
-                        <div class="members_on">00</div>
-                        <div class="members_total">20</div>
-                    </div>
                 </div>
-                <div  class="topic_1 voice">
+                <div  class="topic_1 type">
                     <div class="name_topic">
-                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
-                        room 1
+                        <div class="dot_topic"></div>
+                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z"></path></svg>
+                        room 3
                     </div>
                     <div class="topic_add">
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
                     </div>
-                    <div class="member_numbers">
-                        <div class="members_on">00</div>
-                        <div class="members_total">05</div>
-                    </div>
                 </div>
-                <div  class="topic_1 voice">
+                <div  class="topic_1 type">
                     <div class="name_topic">
-                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
-                        room 2
+                        <div class="dot_topic"></div>
+                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z"></path></svg>
+                        room 4
                     </div>
                     <div class="topic_add">
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
-                    </div>
-                    <div class="member_numbers">
-                        <div class="members_on">00</div>
-                        <div class="members_total">20</div>
                     </div>
                 </div>
                 <div  class="topic_1 voice">
@@ -289,10 +281,24 @@
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
                     </div>
                     <div class="member_numbers">
-                        <div class="members_on">00</div>
+                        <div class="members_on">03</div>
                         <div class="members_total">05</div>
                     </div>
                 </div>
+                    <div class="topic_1_members">
+                        <div class="topic_member">
+                            <img class="topic_member_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0lHta7_0E96ueRan47JcfBa0WO9KzAQyLUA&usqp=CAU" alt="">
+                            <div class="topic_member_name">Zé</div>
+                        </div>
+                        <div class="topic_member">
+                            <img class="topic_member_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB0guIRqBsNhVfUomKV0_H-jQcHRvYIBf8O95za_tfdpJYxi69dbeUSierw1721hSlNfA&usqp=CAU" alt="">
+                            <div class="topic_member_name">Filipe</div>
+                        </div>
+                        <div class="topic_member">
+                            <img class="topic_member_img" src="https://png.pngtree.com/element_origin_min_pic/17/04/09/801be522ea401aa534301405ad601bf9.jpg" alt="">
+                            <div class="topic_member_name">Maria</div>
+                        </div>
+                    </div>
                 <div  class="topic_1 voice">
                     <div class="name_topic">
                         <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
@@ -309,98 +315,179 @@
                 <div  class="topic_1 voice">
                     <div class="name_topic">
                         <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
-                        room 2
+                        room 3
                     </div>
                     <div class="topic_add">
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
                     </div>
                     <div class="member_numbers">
                         <div class="members_on">00</div>
-                        <div class="members_total">20</div>
+                        <div class="members_total">10</div>
                     </div>
                 </div>
                 <div  class="topic_1 voice">
                     <div class="name_topic">
                         <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
-                        room 2
+                        room 4
                     </div>
                     <div class="topic_add">
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
                     </div>
                     <div class="member_numbers">
                         <div class="members_on">00</div>
-                        <div class="members_total">20</div>
+                        <div class="members_total">03</div>
+                    </div>
+                </div>
+            <div class="topic">
+                <svg class="arrow_topic" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M16.59 8.59004L12 13.17L7.41 8.59004L6 10L12 16L18 10L16.59 8.59004Z"></path></svg>
+                <div class="title">
+                    PRIVATE
+                </div>
+            </div>
+                <div  class="topic_1 voice">
+                    <div class="name_topic">
+                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
+                        private 1
+                    </div>
+                    <div class="topic_add">
+                        <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
+                    </div>
+                    <div class="member_numbers">
+                        <div class="members_on">01</div>
+                        <div class="members_total">02</div>
+                    </div>
+                </div>
+                <div class="topic_1_members">
+                    <div class="topic_member">
+                        <img class="topic_member_img" src="https://www.seekpng.com/png/detail/901-9018803_hangloose-sticker-hang-loose-sticker.png" alt="">
+                        <div class="topic_member_name">Zóio</div>
+                        <div class="fone_hs">
+                            <div class="topic_member_fone">
+                                <svg class="" aria-hidden="false" width="16" height="16" viewBox="0 0 24 24"><path d="M6.7 11H5C5 12.19 5.34 13.3 5.9 14.28L7.13 13.05C6.86 12.43 6.7 11.74 6.7 11Z" ></path><path d="M9.01 11.085C9.015 11.1125 9.02 11.14 9.02 11.17L15 5.18V5C15 3.34 13.66 2 12 2C10.34 2 9 3.34 9 5V11C9 11.03 9.005 11.0575 9.01 11.085Z" ></path><path d="M11.7237 16.0927L10.9632 16.8531L10.2533 17.5688C10.4978 17.633 10.747 17.6839 11 17.72V22H13V17.72C16.28 17.23 19 14.41 19 11H17.3C17.3 14 14.76 16.1 12 16.1C11.9076 16.1 11.8155 16.0975 11.7237 16.0927Z" ></path><path d="M21 4.27L19.73 3L3 19.73L4.27 21L8.46 16.82L9.69 15.58L11.35 13.92L14.99 10.28L21 4.27Z"  class="svgMicDisabled_scratched" ></path></svg>
+                            </div>
+                            <div class="topic_member_hs">
+                                <svg class="" aria-hidden="false" width="16" height="16" viewBox="0 0 24 24"><path d="M6.16204 15.0065C6.10859 15.0022 6.05455 15 6 15H4V12C4 7.588 7.589 4 12 4C13.4809 4 14.8691 4.40439 16.0599 5.10859L17.5102 3.65835C15.9292 2.61064 14.0346 2 12 2C6.486 2 2 6.485 2 12V19.1685L6.16204 15.0065Z" ></path><path d="M19.725 9.91686C19.9043 10.5813 20 11.2796 20 12V15H18C16.896 15 16 15.896 16 17V20C16 21.104 16.896 22 18 22H20C21.105 22 22 21.104 22 20V12C22 10.7075 21.7536 9.47149 21.3053 8.33658L19.725 9.91686Z" ></path><path d="M3.20101 23.6243L1.7868 22.2101L21.5858 2.41113L23 3.82535L3.20101 23.6243Z" ></path></svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div  class="topic_1 voice">
                     <div class="name_topic">
                         <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
-                        room 2
+                        private 2
                     </div>
                     <div class="topic_add">
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
                     </div>
                     <div class="member_numbers">
                         <div class="members_on">00</div>
-                        <div class="members_total">20</div>
+                        <div class="members_total">04</div>
                     </div>
                 </div>
                 <div  class="topic_1 voice">
                     <div class="name_topic">
                         <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
-                        room 2
+                        private 3 
                     </div>
                     <div class="topic_add">
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
                     </div>
                     <div class="member_numbers">
                         <div class="members_on">00</div>
-                        <div class="members_total">20</div>
+                        <div class="members_total">06</div>
                     </div>
                 </div>
+            <div class="topic">
+                <svg class="arrow_topic" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M16.59 8.59004L12 13.17L7.41 8.59004L6 10L12 16L18 10L16.59 8.59004Z"></path></svg>
+                <div class="title">
+                    IMAGES
+                </div>
+            </div>
+                <div  class="topic_1 type">
+                    <div class="name_topic">
+                        <div class="dot_topic"></div>
+                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z"></path></svg>
+                        selfies
+                    </div>
+                    <div class="topic_add">
+                        <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
+                    </div>
+                    <div class="topic_1_notif">3</div>
+                </div>
+                <div  class="topic_1 type">
+                    <div class="name_topic">
+                        <div class="dot_topic"></div>
+                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z"></path></svg>
+                        pets
+                    </div>
+                    <div class="topic_add">
+                        <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
+                    </div>
+                </div>
+                <div  class="topic_1 type">
+                    <div class="name_topic">
+                        <div class="dot_topic"></div>
+                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z"></path></svg>
+                        places
+                    </div>
+                    <div class="topic_add">
+                        <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
+                    </div>
+                    <div class="topic_1_notif">1</div>
+                </div>
+                <div  class="topic_1 type">
+                    <div class="name_topic">
+                        <div class="dot_topic"></div>
+                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z"></path></svg>
+                        sewer
+                    </div>
+                    <div class="topic_add">
+                        <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
+                    </div>
+                </div>
+            <div class="topic">
+                <svg class="arrow_topic" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M16.59 8.59004L12 13.17L7.41 8.59004L6 10L12 16L18 10L16.59 8.59004Z"></path></svg>
+                <div class="title">
+                    MUSIC
+                </div>
+            </div>
                 <div  class="topic_1 voice">
                     <div class="name_topic">
                         <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
-                        room 2
+                        music 1
                     </div>
                     <div class="topic_add">
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
                     </div>
                     <div class="member_numbers">
-                        <div class="members_on">00</div>
+                        <div class="members_on">02</div>
                         <div class="members_total">20</div>
+                    </div>
+                </div>
+                <div class="topic_1_members">
+                    <div class="topic_member">
+                        <img class="topic_member_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRasrLRkGXTyNrnNBYNRxAeLEtOfAlBD1R6Uw&usqp=CAU" alt="">
+                        <div class="topic_member_name">João</div>
+                        <div class="fone_hs">
+                            <div class="topic_member_fone">
+                                <svg class="" aria-hidden="false" width="16" height="16" viewBox="0 0 24 24"><path d="M6.7 11H5C5 12.19 5.34 13.3 5.9 14.28L7.13 13.05C6.86 12.43 6.7 11.74 6.7 11Z" ></path><path d="M9.01 11.085C9.015 11.1125 9.02 11.14 9.02 11.17L15 5.18V5C15 3.34 13.66 2 12 2C10.34 2 9 3.34 9 5V11C9 11.03 9.005 11.0575 9.01 11.085Z" ></path><path d="M11.7237 16.0927L10.9632 16.8531L10.2533 17.5688C10.4978 17.633 10.747 17.6839 11 17.72V22H13V17.72C16.28 17.23 19 14.41 19 11H17.3C17.3 14 14.76 16.1 12 16.1C11.9076 16.1 11.8155 16.0975 11.7237 16.0927Z" ></path><path d="M21 4.27L19.73 3L3 19.73L4.27 21L8.46 16.82L9.69 15.58L11.35 13.92L14.99 10.28L21 4.27Z"  class="svgMicDisabled_scratched" ></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic_member">
+                        <img class="topic_member_img" src="https://s1.static.brasilescola.uol.com.br/be/conteudo/images/2-bandeira-do-brasil.jpg" alt="">
+                        <div class="topic_member_name">Leandro</div>
+                        <div class="fone_hs">
+                            <div class="topic_member_fone">
+                                <svg class="" aria-hidden="false" width="16" height="16" viewBox="0 0 24 24"><path d="M6.7 11H5C5 12.19 5.34 13.3 5.9 14.28L7.13 13.05C6.86 12.43 6.7 11.74 6.7 11Z" ></path><path d="M9.01 11.085C9.015 11.1125 9.02 11.14 9.02 11.17L15 5.18V5C15 3.34 13.66 2 12 2C10.34 2 9 3.34 9 5V11C9 11.03 9.005 11.0575 9.01 11.085Z" ></path><path d="M11.7237 16.0927L10.9632 16.8531L10.2533 17.5688C10.4978 17.633 10.747 17.6839 11 17.72V22H13V17.72C16.28 17.23 19 14.41 19 11H17.3C17.3 14 14.76 16.1 12 16.1C11.9076 16.1 11.8155 16.0975 11.7237 16.0927Z" ></path><path d="M21 4.27L19.73 3L3 19.73L4.27 21L8.46 16.82L9.69 15.58L11.35 13.92L14.99 10.28L21 4.27Z"  class="svgMicDisabled_scratched" ></path></svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div  class="topic_1 voice">
                     <div class="name_topic">
                         <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
-                        room 2
-                    </div>
-                    <div class="topic_add">
-                        <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
-                    </div>
-                    <div class="member_numbers">
-                        <div class="members_on">00</div>
-                        <div class="members_total">20</div>
-                    </div>
-                </div>
-                <div  class="topic_1 voice">
-                    <div class="name_topic">
-                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
-                        room 2
-                    </div>
-                    <div class="topic_add">
-                        <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
-                    </div>
-                    <div class="member_numbers">
-                        <div class="members_on">00</div>
-                        <div class="members_total">20</div>
-                    </div>
-                </div>
-                <div  class="topic_1 voice">
-                    <div class="name_topic">
-                        <svg class="rashtag_topic_1" viewBox="0 0 24 24"><path  fill-rule="evenodd" clip-rule="evenodd" d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z" aria-hidden="true"></path></svg>
-                        room 2
+                        music 2
                     </div>
                     <div class="topic_add">
                         <svg class="topic_add_svg" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M14 2H16V3H14V5H13V3H11V2H13V0H14V2Z"></path><path d="M6.5 8.00667C7.88 8.00667 9 6.88667 9 5.50667C9 4.12667 7.88 3.00667 6.5 3.00667C5.12 3.00667 4 4.12667 4 5.50667C4 6.88667 5.12 8.00667 6.5 8.00667Z"></path><path d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"></path></svg>
@@ -412,22 +499,22 @@
                 </div>
         </div>
         <div class="account">
-            <div class="photo">
+            <div class="photo" style="background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB0guIRqBsNhVfUomKV0_H-jQcHRvYIBf8O95za_tfdpJYxi69dbeUSierw1721hSlNfA&usqp=CAU);">
                 <div class="actv"></div>
             </div>
             <div class="nameId">
-                <div class="nameid_name">Bt 777</div>
+                <div class="nameid_name">Filipe</div>
                 <div class="nameid_id">#123232</div>
             </div>
             <!-- mic -->
-            <button class="btnMic">
-                <svg class="svgMic" aria-hidden="false" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.99 11C14.99 12.66 13.66 14 12 14C10.34 14 9 12.66 9 11V5C9 3.34 10.34 2 12 2C13.66 2 15 3.34 15 5L14.99 11ZM12 16.1C14.76 16.1 17.3 14 17.3 11H19C19 14.42 16.28 17.24 13 17.72V21H11V17.72C7.72 17.23 5 14.41 5 11H6.7C6.7 14 9.24 16.1 12 16.1ZM12 4C11.2 4 11 4.66667 11 5V11C11 11.3333 11.2 12 12 12C12.8 12 13 11.3333 13 11V5C13 4.66667 12.8 4 12 4Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.99 11C14.99 12.66 13.66 14 12 14C10.34 14 9 12.66 9 11V5C9 3.34 10.34 2 12 2C13.66 2 15 3.34 15 5L14.99 11ZM12 16.1C14.76 16.1 17.3 14 17.3 11H19C19 14.42 16.28 17.24 13 17.72V22H11V17.72C7.72 17.23 5 14.41 5 11H6.7C6.7 14 9.24 16.1 12 16.1Z"></path></svg>
-                <svg class="svgMicDisabled" style="display:none" aria-hidden="false" width="20" height="20" viewBox="0 0 24 24"><path d="M6.7 11H5C5 12.19 5.34 13.3 5.9 14.28L7.13 13.05C6.86 12.43 6.7 11.74 6.7 11Z" ></path><path d="M9.01 11.085C9.015 11.1125 9.02 11.14 9.02 11.17L15 5.18V5C15 3.34 13.66 2 12 2C10.34 2 9 3.34 9 5V11C9 11.03 9.005 11.0575 9.01 11.085Z" ></path><path d="M11.7237 16.0927L10.9632 16.8531L10.2533 17.5688C10.4978 17.633 10.747 17.6839 11 17.72V22H13V17.72C16.28 17.23 19 14.41 19 11H17.3C17.3 14 14.76 16.1 12 16.1C11.9076 16.1 11.8155 16.0975 11.7237 16.0927Z" ></path><path d="M21 4.27L19.73 3L3 19.73L4.27 21L8.46 16.82L9.69 15.58L11.35 13.92L14.99 10.28L21 4.27Z" class="strikethrough-1n4ekb" ></path></svg>
+            <button class="btnMic" onclick="mic()">
+                <svg class="svgMic" id="svgMic" aria-hidden="false" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.99 11C14.99 12.66 13.66 14 12 14C10.34 14 9 12.66 9 11V5C9 3.34 10.34 2 12 2C13.66 2 15 3.34 15 5L14.99 11ZM12 16.1C14.76 16.1 17.3 14 17.3 11H19C19 14.42 16.28 17.24 13 17.72V21H11V17.72C7.72 17.23 5 14.41 5 11H6.7C6.7 14 9.24 16.1 12 16.1ZM12 4C11.2 4 11 4.66667 11 5V11C11 11.3333 11.2 12 12 12C12.8 12 13 11.3333 13 11V5C13 4.66667 12.8 4 12 4Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14.99 11C14.99 12.66 13.66 14 12 14C10.34 14 9 12.66 9 11V5C9 3.34 10.34 2 12 2C13.66 2 15 3.34 15 5L14.99 11ZM12 16.1C14.76 16.1 17.3 14 17.3 11H19C19 14.42 16.28 17.24 13 17.72V22H11V17.72C7.72 17.23 5 14.41 5 11H6.7C6.7 14 9.24 16.1 12 16.1Z"></path></svg>
+                <svg class="svgMicDisabled" id="svgMicDis" aria-hidden="false" width="20" height="20" viewBox="0 0 24 24"><path d="M6.7 11H5C5 12.19 5.34 13.3 5.9 14.28L7.13 13.05C6.86 12.43 6.7 11.74 6.7 11Z" ></path><path d="M9.01 11.085C9.015 11.1125 9.02 11.14 9.02 11.17L15 5.18V5C15 3.34 13.66 2 12 2C10.34 2 9 3.34 9 5V11C9 11.03 9.005 11.0575 9.01 11.085Z" ></path><path  d="M11.7237 16.0927L10.9632 16.8531L10.2533 17.5688C10.4978 17.633 10.747 17.6839 11 17.72V22H13V17.72C16.28 17.23 19 14.41 19 11H17.3C17.3 14 14.76 16.1 12 16.1C11.9076 16.1 11.8155 16.0975 11.7237 16.0927Z" ></path><path class="svgMicDisabled_scratched" d="M21 4.27L19.73 3L3 19.73L4.27 21L8.46 16.82L9.69 15.58L11.35 13.92L14.99 10.28L21 4.27Z" class="strikethrough-1n4ekb" ></path></svg>
             </button>
             <!-- headset -->
-            <button class="btnHs">
-                <svg class="svgHs" viewBox="0 0 24 24"><path d="M12 2.00305C6.486 2.00305 2 6.48805 2 12.0031V20.0031C2 21.1071 2.895 22.0031 4 22.0031H6C7.104 22.0031 8 21.1071 8 20.0031V17.0031C8 15.8991 7.104 15.0031 6 15.0031H4V12.0031C4 7.59105 7.589 4.00305 12 4.00305C16.411 4.00305 20 7.59105 20 12.0031V15.0031H18C16.896 15.0031 16 15.8991 16 17.0031V20.0031C16 21.1071 16.896 22.0031 18 22.0031H20C21.104 22.0031 22 21.1071 22 20.0031V12.0031C22 6.48805 17.514 2.00305 12 2.00305Z"></path></svg>
-                <svg class="svgHsDisabled" style="display:none;" aria-hidden="false" width="20" height="20" viewBox="0 0 24 24"><path d="M6.16204 15.0065C6.10859 15.0022 6.05455 15 6 15H4V12C4 7.588 7.589 4 12 4C13.4809 4 14.8691 4.40439 16.0599 5.10859L17.5102 3.65835C15.9292 2.61064 14.0346 2 12 2C6.486 2 2 6.485 2 12V19.1685L6.16204 15.0065Z"></path><path d="M19.725 9.91686C19.9043 10.5813 20 11.2796 20 12V15H18C16.896 15 16 15.896 16 17V20C16 21.104 16.896 22 18 22H20C21.105 22 22 21.104 22 20V12C22 10.7075 21.7536 9.47149 21.3053 8.33658L19.725 9.91686Z" ></path><path d="M3.20101 23.6243L1.7868 22.2101L21.5858 2.41113L23 3.82535L3.20101 23.6243Z" class="strikethrough-1n4ekb" ></path></svg>
+            <button class="btnHs" onclick="hs()">
+                <svg class="svgHs" id="svgHs" viewBox="0 0 24 24"><path d="M12 2.00305C6.486 2.00305 2 6.48805 2 12.0031V20.0031C2 21.1071 2.895 22.0031 4 22.0031H6C7.104 22.0031 8 21.1071 8 20.0031V17.0031C8 15.8991 7.104 15.0031 6 15.0031H4V12.0031C4 7.59105 7.589 4.00305 12 4.00305C16.411 4.00305 20 7.59105 20 12.0031V15.0031H18C16.896 15.0031 16 15.8991 16 17.0031V20.0031C16 21.1071 16.896 22.0031 18 22.0031H20C21.104 22.0031 22 21.1071 22 20.0031V12.0031C22 6.48805 17.514 2.00305 12 2.00305Z"></path></svg>
+                <svg class="svgHsDisabled" id="svgHsDisabled" aria-hidden="false" width="20" height="20" viewBox="0 0 24 24"><path d="M6.16204 15.0065C6.10859 15.0022 6.05455 15 6 15H4V12C4 7.588 7.589 4 12 4C13.4809 4 14.8691 4.40439 16.0599 5.10859L17.5102 3.65835C15.9292 2.61064 14.0346 2 12 2C6.486 2 2 6.485 2 12V19.1685L6.16204 15.0065Z"></path><path d="M19.725 9.91686C19.9043 10.5813 20 11.2796 20 12V15H18C16.896 15 16 15.896 16 17V20C16 21.104 16.896 22 18 22H20C21.105 22 22 21.104 22 20V12C22 10.7075 21.7536 9.47149 21.3053 8.33658L19.725 9.91686Z" ></path><path class="svgHsDisabled_scratched" d="M3.20101 23.6243L1.7868 22.2101L21.5858 2.41113L23 3.82535L3.20101 23.6243Z" class="strikethrough-1n4ekb" ></path></svg>
             </button>
             <!-- config -->
             <button class="btnConfig">
@@ -448,7 +535,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB0guIRqBsNhVfUomKV0_H-jQcHRvYIBf8O95za_tfdpJYxi69dbeUSierw1721hSlNfA&usqp=CAU" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Filipe</div>
@@ -474,7 +561,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRasrLRkGXTyNrnNBYNRxAeLEtOfAlBD1R6Uw&usqp=CAU" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">João</div>
@@ -497,7 +584,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0lHta7_0E96ueRan47JcfBa0WO9KzAQyLUA&usqp=CAU" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Zé</div>
@@ -520,7 +607,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://fotos.amomeupet.org/uploads/fotos/1568662224_5d7fe2d09bccd_hd.jpeg" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Marcos</div>
@@ -544,7 +631,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://s1.static.brasilescola.uol.com.br/be/conteudo/images/2-bandeira-do-brasil.jpg" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Leandro</div>
@@ -568,7 +655,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://png.pngtree.com/element_origin_min_pic/17/04/09/801be522ea401aa534301405ad601bf9.jpg" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Maria</div>
@@ -591,7 +678,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://fotos.amomeupet.org/uploads/fotos/1568662224_5d7fe2d09bccd_hd.jpeg" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Marcos</div>
@@ -614,7 +701,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB0guIRqBsNhVfUomKV0_H-jQcHRvYIBf8O95za_tfdpJYxi69dbeUSierw1721hSlNfA&usqp=CAU" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Filipe</div>
@@ -637,7 +724,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0lHta7_0E96ueRan47JcfBa0WO9KzAQyLUA&usqp=CAU" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Zé</div>
@@ -660,7 +747,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://www.seekpng.com/png/detail/901-9018803_hangloose-sticker-hang-loose-sticker.png" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">zóio</div>
@@ -683,7 +770,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRasrLRkGXTyNrnNBYNRxAeLEtOfAlBD1R6Uw&usqp=CAU" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">João</div>
@@ -707,7 +794,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://png.pngtree.com/element_origin_min_pic/17/04/09/801be522ea401aa534301405ad601bf9.jpg" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Maria</div>
@@ -731,7 +818,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB0guIRqBsNhVfUomKV0_H-jQcHRvYIBf8O95za_tfdpJYxi69dbeUSierw1721hSlNfA&usqp=CAU" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Filipe</div>
@@ -754,7 +841,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://www.seekpng.com/png/detail/901-9018803_hangloose-sticker-hang-loose-sticker.png" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Zóio</div>
@@ -777,7 +864,7 @@
                             <svg class="more_svg" aria-hidden="false" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.001C7 10.8964 6.10457 10.001 5 10.001C3.89543 10.001 3 10.8964 3 12.001C3 13.1055 3.89543 14.001 5 14.001C6.10457 14.001 7 13.1055 7 12.001ZM14 12.001C14 10.8964 13.1046 10.001 12 10.001C10.8954 10.001 10 10.8964 10 12.001C10 13.1055 10.8954 14.001 12 14.001C13.1046 14.001 14 13.1055 14 12.001ZM19 10.001C20.1046 10.001 21 10.8964 21 12.001C21 13.1055 20.1046 14.001 19 14.001C17.8954 14.001 17 13.1055 17 12.001C17 10.8964 17.8954 10.001 19 10.001Z"></path></svg>
                         </div>
                     </div>
-                    <img src="" alt="">
+                    <img src="https://fotos.amomeupet.org/uploads/fotos/1568662224_5d7fe2d09bccd_hd.jpeg" alt="">
                     <div class="chat_message">
                         <div class="head">
                             <div class="user">Marcos</div>
@@ -844,21 +931,21 @@
 
             </form>
         </div>
-        <div class="members">
+        <div class="members" id="members">
             <div class="members_online">
                 ONLINE
             </div>
             <div class="member">
-                <div class="img_member">
+                <div class="img_member" style="background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRasrLRkGXTyNrnNBYNRxAeLEtOfAlBD1R6Uw&usqp=CAU);">
                     <div class="member_status" style="background:#ed4245;"></div>
                 </div>
                 <div class="info_member">
-                    <div class="name_member">Joao</div>
+                    <div class="name_member">João</div>
                     <div class="desc_member">Playing...</div>
                 </div>
             </div>
             <div class="member">
-                <div class="img_member">
+                <div class="img_member" style="background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0lHta7_0E96ueRan47JcfBa0WO9KzAQyLUA&usqp=CAU);">
                     <div class="member_status" style="background:#3ba55d;"></div>
                 </div>
                 <div class="info_member">
@@ -866,7 +953,7 @@
                 </div>
             </div>
             <div class="member">
-                <div class="img_member">
+                <div class="img_member" style="background-image:url(https://s1.static.brasilescola.uol.com.br/be/conteudo/images/2-bandeira-do-brasil.jpg);">
                     <div class="member_status" style="background:#3ba55d;"></div>
                 </div>
                 <div class="info_member">
@@ -874,7 +961,7 @@
                 </div>
             </div>
             <div class="member">
-                <div class="img_member">
+                <div class="img_member" style="background-image:url(https://png.pngtree.com/element_origin_min_pic/17/04/09/801be522ea401aa534301405ad601bf9.jpg);">
                     <div class="member_status" style="background:#ed4245;"></div>
                 </div>
                 <div class="info_member">
@@ -883,147 +970,28 @@
                 </div>
             </div>
             <div class="member">
-                <div class="img_member">
+                <div class="img_member" style="background-image:url(https://www.seekpng.com/png/detail/901-9018803_hangloose-sticker-hang-loose-sticker.png);">
                     <div class="member_status" style="background:#3ba55d;"></div>
                 </div>
                 <div class="info_member">
                     <div class="name_member_alone">Zóio</div>
                 </div>
             </div>
+            <div class="member">
+                <div class="img_member" style="background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB0guIRqBsNhVfUomKV0_H-jQcHRvYIBf8O95za_tfdpJYxi69dbeUSierw1721hSlNfA&usqp=CAU);">
+                </div>
+                <div class="info_member">
+                    <div class="name_member_alone">Filipe</div>
+                </div>
+            </div>
             <div class="members_offline">
                 OFFLINE
             </div>
             <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Joao</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
+                <div class="img_member" style="background-image:url(https://fotos.amomeupet.org/uploads/fotos/1568662224_5d7fe2d09bccd_hd.jpeg);">
                 </div>
                 <div class="info_member">
                     <div class="name_member_alone">Marcos</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
-                </div>
-            </div>
-            <div class="member" style="opacity:0.3;">
-                <div class="img_member">
-                </div>
-                <div class="info_member">
-                    <div class="name_member_alone">Filipe</div>
                 </div>
             </div>
         </div>

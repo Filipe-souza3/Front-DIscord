@@ -20,6 +20,8 @@ html, body{
         background:#363A3F;
         border-bottom:1px solid #222427;
         display:flex;
+        font-weight:bold;
+        color: #F8FFFF;
     }
         .nameChannel{
             height:100%;
@@ -36,26 +38,16 @@ html, body{
                 display:flex;
                 justify-content:space-between;
                 align-items:center;
-                font-family:Arial, Helvetica, sans-serif;
-                font-weight:bold;
                 font-size:14px;
-                color: #F8FFFF;
             }
                 .actionServ{
-                    font-weight:bold;
-                    stroke-width:2px;
-                    float:left;
-                    cursor: pointer;
+                   stroke-width:2px;
+                   float:left;
+                   cursor: pointer;
                    clip-path:polygon(0 0, 100% 0, 100% 40%, 50% 55%, 0 40%);
                    transition: transform 0.25s, margin-top 0.15s;
                    margin-top:5px;
-                }
-                /* .servName:hover .actionServ{ */
-                .actionServ:hover{
-                    border:none;
-                    transform:rotate(-90deg);
-                    clip-path:polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-                    margin-top:0px;
+                   border:none;
                 }
             .inputFind{
                 height:26px;
@@ -65,10 +57,8 @@ html, body{
                 border-radius:4px;
                 border:none;
                 color:#DCDDDE;
-                font-family:Arial, Helvetica, sans-serif;
                 padding-left:10px;
                 letter-spacing:0.1px;
-                /* font-weight: bold; */
                 display:none;
             }
         .searchNotif{
@@ -78,33 +68,35 @@ html, body{
             align-items:center;
             margin-right:5px;
         }
+            .svgIconHead,path{
+                overflow:hidden;
+                flex:none;
+                float:left;
+                margin-top:12px;
+                margin-left:14px;
+                margin-right:8px;
+                position:static;
+                z-index:0;
+            }
+                .iconHead{
+                    fill:#72767D;
+                }
             .headRoom{
                 height:24px;
                 width:calc(100% - 400px);
                 display:flex;
                 align-items:center;
-                font-family:Arial, Helvetica, sans-serif;
-                font-weight: bold;
-                color: #F8FFFF;
                 font-size:15px;
-                white-space: nowrap;
-                overflow:hidden;
-                text-overflow: clip;  
-                margin-top: 12px; margin-left:40px;
+                margin-top:12px;
+                float:left;
             }
-                 .svgIconHead,path{
+                .headRoom>div{
+                    height:100%;
+                    width:330px;
+                    white-space:nowrap;
                     overflow:hidden;
-                    flex:none;
-                    float:left;
-                    margin-top:12px;
-                    margin-left:14px;
-                    margin-right:8px;
-                    position:static;
-                    z-index:0;
+                    text-overflow:ellipsis;  
                 }
-                    .iconHead{
-                            fill:#72767D;
-                        }
             .searchInfos{
                 height:24px;
                 width:360px;
@@ -112,54 +104,59 @@ html, body{
                 flex:none;
                 float:right;
                 display:flex;
-                justify-content: space-around;
-                background-color:#35383e;
+                justify-content:space-around;
+                background:#35383e;
             }
-                .searchInfos:hover{
-                        width:456px;background:#35383e;
-                    }
                 .search{
-                    background: green;
                     height:24px;
                     width:144px;
                     background:#202225;
                     border-radius:5px;
                     display:flex;
-                    align-items: center;
+                    align-items:center;
                 }
-                    .search:hover{
-                            width:240px;
-                        }
+                .input_search:focus>.search{
+                    width:240px;
+
+                }
                     .input_search{
                         border:none;
                         height:20px;
                         width:110px;
                         border-radius:5px 0 0 5px;
                         background-color:#202225;
-                        color:rgba(255, 255, 255, 0.781);
+                        color:#ffffffc7;
                         font-size:13px;
                         margin-left:4px;   
                     }
-                    /* .input_search:focus{width:206px;} */
-                    .input_search:hover{
-                            width:206px;
-                        }
                     .magnifier{
                         fill:#62666C;
                         width:16px;
                         height:16px;
                         margin-left:8px;
                     }
-                .searchInfos_bell path,.searchInfos_pinned path,.searchInfos_member path,
+                .searchInfos_bell{
+                    display:block;
+                }
+                .searchInfos_bell_disabled{
+                    display:none;
+                }
+                    .bell_disabled_scratched{
+                        fill:#e04144;
+                    }
+                .searchInfos_bell path, .searchInfos_bell_disabled, .searchInfos_pinned path, .searchInfos_member path,
                 .searchInfos_inbox path, .searchInfos_help path{
                     fill:#B9BBBE;
                 }
-                .searchInfos_bell:hover path, .searchInfos_pinned:hover path,
+                .searchInfos_bell:hover path, .searchInfos_bell_disabled:hover path, .searchInfos_pinned:hover path,
                 .searchInfos_member:hover path,.searchInfos_inbox:hover path,
                 .searchInfos_help:hover path{
                     fill:#DCDDDE
-                    /* fill: red; */
                 }
+                    .searchInfos_bell_disabled:hover>.bell_disabled_scratched{
+                        fill:#e04144;
+                    }
+                    
 
     .channels{
         grid-area:channels;
@@ -188,16 +185,17 @@ html, body{
                 margin-left:8px;
                 background:#36393F;
                 background-position:center;
-                background-size:150% 160%;
+                background-size:cover;
                 transition:border-radius 0.3s;
                 display:flex;
                 align-items:center;
                 justify-content:center;
             }
+                .channel_active{
+                    border-radius:38%;
+                }
                 .channel:hover{
                     border-radius:38%;
-                    background-position:center;
-                    background-size:150% 160%;                        
                 }
                 .picChannel:first-child>.channel:hover{
                     background:#5865F2;
@@ -221,7 +219,6 @@ html, body{
                     border-radius:50%;
                     color:white;
                     font-weight:bold;
-                    font-family:Arial, Helvetica, sans-serif;
                     font-size:12px;
                     border-style:solid;
                     border-width:4px;
@@ -232,11 +229,10 @@ html, body{
                     display:flex;
                     align-items:flex-end;
                     justify-content:center;
-
                 }
                 .picChannel:nth-child(4)>.channel .notification{
                     width:22px;
-                    margin-left: 26px;
+                    margin-left:26px;
                     border-radius:45%;
                 }
             .dotLeft{
@@ -248,6 +244,10 @@ html, body{
                 background:white;
                 transition:height 0.3s;
             }
+                .dotLeft_active{
+                    min-height:40px;
+                    border-radius:0 28% 28% 0; 
+                }
             .picChannel:first-child>.dotLeft{
                 visibility:hidden;
             }
@@ -280,6 +280,7 @@ html, body{
         overflow-y:auto;
         scrollbar-color: #2F3137 #2F3137;
         scrollbar-width:thin;
+
     }
         .rooms:hover{
             scrollbar-color: #202225 #2F3137;
@@ -287,12 +288,16 @@ html, body{
         .serv_config{
             height:280px;
             width:220px;
-            background:#18191c;
-            position:fixed;
+            overflow: hidden;
+            background:#18191c; 
+            position: absolute;
             margin-left:10px;
             margin-top:6px;
             border-radius:5px;
-            /* display:none; */
+            visibility:hidden;
+            transform:scale(0.1);
+            transform-origin:top;
+            transition: all 0.2s;
         }
             .serv_conf{
                 width:92%;
@@ -305,7 +310,7 @@ html, body{
                 color:#b3bbb8;
                 display:flex;
                 align-items:center;
-                justify-content: space-between;
+                justify-content:space-between;
                 border-radius:3px;
             }
             .serv_conf:first-child{
@@ -372,7 +377,6 @@ html, body{
                         fill:#D8D9DA;
                     }
             .title{
-                font-family:Arial, Helvetica, sans-serif;
                 color:#72767D;
                 font-weight:bold;
                 font-size:11px;
@@ -442,7 +446,6 @@ html, body{
             .member_numbers{
                 height:20px;
                 width:48px;
-                font-family:Arial, Helvetica, sans-serif;
                 margin-right:10px;
                 border-radius:30px;
                 display:flex;
@@ -472,6 +475,60 @@ html, body{
                 .topic_add_svg{
                     fill:#b9bbbe;
                 }
+        .topic_1_members{
+            width:196px;
+            padding-left:36px;
+            padding-bottom:8px;
+        }
+            .topic_member{
+                width:100%;
+                height:30px;
+                margin-top:1px;
+                margin-bottom:1px;
+                display:flex;
+                align-items:center;
+                border-radius:5px;
+            }
+                .topic_member:hover{
+                    background:#33363C;
+                    color:#D8D9DA;
+                }
+                .topic_member_img{
+                    width:24px;
+                    height:24px;
+                    margin-left:8px;
+                    margin-right:8px;
+                    border-radius:50%;
+                }
+                .topic_member_name{
+                    margin-right:6px;
+                    flex-grow:1;
+                    height:18px;
+                    color:#72767D;
+                    font-weight:bold;
+                    display:flex;
+                    align-items:center;
+                    font-size:14px;
+                }
+                .fone_hs{
+                    width:40px;
+                    height:16px;
+                    margin-right:8px;
+                    display:flex;
+                    justify-content:end;
+                }
+                    .topic_member_fone{
+                        width:16px;
+                        height:16px;
+                        margin-left:4px;
+                        fill:#8e9297;
+                    }
+                    .topic_member_hs{
+                        width:16px;
+                        height:16px;
+                        margin-left:4px;
+                        fill:#cd3d41;
+                    }
         .account{
             grid-area:account;
             width:100%;
@@ -484,7 +541,8 @@ html, body{
             .photo{
                 height:32px;
                 width:32px;
-                background:#77787a;
+                background-position:center;
+                background-size:cover;
                 border-radius:50%;
                 margin-right:6px;
             }
@@ -502,7 +560,6 @@ html, body{
                 height:32px;
                 width:84px;
                 margin-right:4px;
-                font-family: Arial, Helvetica, sans-serif;
             }
                 .nameid_name{
                     width:100%;
@@ -529,7 +586,6 @@ html, body{
                 display:flex;
                 align-items:center;
                 justify-content:center;
-
             }
             .btnMic:hover, .btnHs:hover, .btnConfig:hover{
                 background:#32353a;
@@ -537,37 +593,45 @@ html, body{
             .btnMic:hover>.svgMic, .btnHs:hover>.svgHs, .btnConfig:hover>.svgConfig{
                 fill:#dfdbdb;
             }
-                .svgMic, .svgHs, .svgConfig{
+                .svgMic, .svgHs, .svgConfig, .svgMicDisabled, .svgHsDisabled{
                     fill:#b9bbbe;
                     width:20px;
                     height:20px;
-                }  
+                }
+                    .svgMicDisabled_scratched, .svgHsDisabled_scratched{
+                        fill:#cd3d41;
+                    }  
+                .svgMic, .svgHs, .svgConfig{
+                    display:block;
+                }
+                .svgMicDisabled, .svgHsDisabled{
+                    display:none;
+                }
+
+                
     .chat{
         grid-area:chat;
-        background:#35383E;
-        background-image:url(img_disc/home.png);
-        background-position:center;
         display:flex;
         justify-content:flex-end;
         flex-direction: column;
         min-width:0px;
+        background:#36393f;
     }
         .conversation{
             height:99%;
             width:100%;
-            background:#36393f;
             overflow-y:auto;
-            overflow-x: hidden;
+            overflow-x:hidden;
             scrollbar-color: #202225 #2F3137;
         }
             .message{
-                margin-top: 2px;
+                margin-top:2px;
                 min-height:50px;
-                height:auto;
+                /* height:auto; */
                 width:100%;
                 display:flex;
                 flex-direction:row;
-                justify-content: space-between;
+                justify-content:space-between;
                 margin-bottom:16px;
                 position: relative;
             } 
@@ -577,10 +641,11 @@ html, body{
                 .message:hover{
                     background:#31343a;
                 }
-                .message img{
+                .message>img{
                     width:40px;
                     height:40px;
-                    background: #70eb70;
+                    background-size:cover;
+                    background-position:center;
                     border-radius:50%;
                     flex:none;
                     margin-left:12px;
@@ -590,7 +655,6 @@ html, body{
                 .chat_message{
                     width:100%;
                     margin-right:48px;
-                    font-family:Arial, Helvetica, sans-serif;
                 }
                 .edit_msg{
                     height:32px;
@@ -614,7 +678,7 @@ html, body{
                         height:32px;
                         border-radius:5px 0 0 5px;
                         display:flex;
-                        justify-content: center;
+                        justify-content:center;
                         align-items:center;
                         float:left;
                     }
@@ -622,7 +686,7 @@ html, body{
                         width:32px;
                         height:32px;
                         display:flex;
-                        justify-content: center;
+                        justify-content:center;
                         align-items:center;
                         float:left;
                     }
@@ -631,7 +695,7 @@ html, body{
                         height:32px;
                         border-radius:0 5px 5px 0;
                         display:flex;
-                        justify-content: center;
+                        justify-content:center;
                         align-items:center;
                         float:right;
                     }
@@ -682,7 +746,7 @@ html, body{
             width:100%;
             background:#36393f;
             display: flex;
-            flex-direction: column;
+            flex-direction:column;
             align-items: center;
             position: relative;
             min-width:0px;
@@ -692,11 +756,11 @@ html, body{
                 width:95%;
                 background:#40444b;
                 border-radius:8px;
-                position: absolute;
+                position:absolute;
                 bottom:24px;
                 display:flex;
                 flex-direction:row;
-                align-items: center;
+                align-items:center;
             }
                 .btn_attach, .btn_gift, .btn_gif, .btn_img, .btn_emoji{
                     height:100%;
@@ -761,14 +825,13 @@ html, body{
                 width:96%;
                 background:#36393f;
                 color:#e5ecf3;
-                font-family: Arial, Helvetica, sans-serif;
                 font-size:13px;
                 font-weight:600;
                 display:flex;
                 align-items:center;
-                justify-content: flex-end;
-                white-space: nowrap;
-                overflow: hidden;
+                justify-content:flex-end;
+                white-space:nowrap;
+                overflow:ihidden;
             }
                 .alert_clock{
                     width:16px;
@@ -785,6 +848,7 @@ html, body{
         overflow-x: hidden;
         scrollbar-color: #2F3137 #2F3137;
         scrollbar-width:thin;
+        display:block;
     }
         .members:hover{
             scrollbar-color: #202225 #2F3137;
@@ -811,7 +875,8 @@ html, body{
             .img_member{
                 width:32px;
                 height:32px;
-                background: rgb(112, 112, 207);
+                background-size:cover;
+                background-position:center;
                 float:left;
                 margin-top:5px;
                 border-radius:50%;
